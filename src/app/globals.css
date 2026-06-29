@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-asphalt: #1A1D1A;
+  --color-paper: #F5F1E8;
+  --color-cone-orange: #D4622A;
+  --color-verified-green: #3D7A5C;
+  --color-stone: #8B8578;
+  
+  /* Brand specific classes based on the new diffs */
+  --color-brand-asphalt: #1A1D1A;
+  --color-brand-paper: #F5F1E8;
+  --color-brand-stone: #8B8578;
+  --color-brand-cone: #D4622A;
+  --color-brand-verified: #3D7A5C;
+  
+  --color-surface: #fdf9f0;
+  --color-surface-dim: #dddad1;
+  --color-surface-bright: #fdf9f0;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f7f3ea;
+  --color-surface-container: #f1eee5;
+  --color-surface-container-high: #ece8df;
+  --color-surface-container-highest: #e6e2d9;
+  --color-on-surface: #1c1c16;
+  --color-on-surface-variant: #444844;
+  --color-inverse-surface: #31302b;
+  --color-inverse-on-surface: #f4f0e7;
+  --color-outline: #757873;
+  --color-outline-variant: #c5c7c2;
+  --color-surface-tint: #5c5f5b;
+  --color-primary: #010201;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #1a1d1a;
+  --color-on-primary-container: #838581;
+  --color-inverse-primary: #c5c7c2;
+  --color-secondary: #a33e03;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #fc8046;
+  --color-on-secondary-container: #672400;
+  --color-tertiary: #000201;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #002214;
+  --color-on-tertiary-container: #549171;
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+  --color-background: #fdf9f0;
+  --color-on-background: #1c1c16;
+  --color-surface-variant: #e6e2d9;
+  
+  --spacing-container-max: 1200px;
+  --spacing-gutter: 16px;
+  --spacing-margin: 24px;
+  --spacing-unit: 4px;
+
+  --font-body-lg: var(--font-inter);
+  --font-body-md: var(--font-inter);
+  --font-mono-label: var(--font-ibm-plex-mono);
+  --font-mono-data: var(--font-ibm-plex-mono);
+  --font-display-lg: var(--font-anton);
+  --font-display-md: var(--font-anton);
+  --font-headline-sm: var(--font-anton);
+  
+  /* Font size definitions to match the spec */
+  --text-body-lg: 18px;
+  --text-body-md: 16px;
+  --text-mono-label: 14px;
+  --text-mono-data: 13px;
+  --text-display-lg: 48px;
+  --text-display-md: 32px;
+  --text-headline-sm: 20px;
+}
+
+body {
+  background-color: var(--color-asphalt);
+  color: var(--color-paper);
+}
+
+.perforated-top {
+  border-top: 2px dotted var(--color-asphalt);
+}
+.perforated-bottom {
+  border-bottom: 2px dotted var(--color-asphalt);
+}
+.stamp-status {
+  transform: rotate(-4deg);
+  border: 2px solid var(--color-cone-orange);
+  color: var(--color-cone-orange);
+  padding: 2px 8px;
+  display: inline-block;
+  text-transform: uppercase;
+  opacity: 0.95;
+  mix-blend-mode: multiply;
+}
+.form-input-line {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--color-asphalt);
+  border-radius: 0;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+}
+.form-input-line:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: var(--color-cone-orange);
+}
+.hazard-stripe {
+  background: repeating-linear-gradient(
+      45deg,
+      var(--color-cone-orange),
+      var(--color-cone-orange) 10px,
+      var(--color-asphalt) 10px,
+      var(--color-asphalt) 20px
+  );
+}
+
+.repeating-linear-gradient-lines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 23px,
+    var(--color-stone) 23px,
+    var(--color-stone) 24px
+  );
+}
