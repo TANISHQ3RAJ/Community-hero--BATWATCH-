@@ -23,6 +23,13 @@ export default function Home() {
   const [activeIssue, setActiveIssue] = useState<any | null>(null)
   const [user, setUser] = useState<any | null>(null)
   const [isFiltersOpen, setIsFiltersOpen] = useState(false)
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([])
+  
+  const toggleCategory = (cat: string) => {
+    setSelectedCategories(prev => 
+      prev.includes(cat) ? prev.filter(c => c !== cat) : [...prev, cat]
+    )
+  }
   const supabase = createClient()
 
   useEffect(() => {
@@ -134,8 +141,14 @@ export default function Home() {
                       <div className="flex flex-col gap-2">
                           {['Potholes', 'Streetlights', 'Graffiti', 'Illegal Dumping'].map(cat => (
                             <label key={cat} className="flex items-center gap-3 cursor-pointer group text-brand-asphalt">
-                                <div className="w-4 h-4 border border-brand-asphalt rounded-sm group-hover:bg-surface-container flex items-center justify-center">
-                                    <span className="material-symbols-outlined text-[12px] opacity-0">check</span>
+                                <input 
+                                    type="checkbox" 
+                                    className="hidden" 
+                                    checked={selectedCategories.includes(cat)} 
+                                    onChange={() => toggleCategory(cat)} 
+                                />
+                                <div className={`w-4 h-4 border border-brand-asphalt rounded-sm flex items-center justify-center transition-colors ${selectedCategories.includes(cat) ? 'bg-brand-asphalt text-brand-paper' : 'group-hover:bg-surface-container'}`}>
+                                    <span className={`material-symbols-outlined text-[12px] ${selectedCategories.includes(cat) ? 'opacity-100' : 'opacity-0'}`}>check</span>
                                 </div>
                                 <span className="font-mono-label text-[13px]">{cat}</span>
                             </label>
