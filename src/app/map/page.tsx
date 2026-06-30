@@ -22,7 +22,7 @@ export default function Home() {
   const [issues, setIssues] = useState<any[]>([])
   const [activeIssue, setActiveIssue] = useState<any | null>(null)
   const [user, setUser] = useState<any | null>(null)
-  const [isFiltersOpen, setIsFiltersOpen] = useState(true)
+  const [isFiltersOpen, setIsFiltersOpen] = useState(false)
   const supabase = createClient()
 
   useEffect(() => {
@@ -105,19 +105,19 @@ export default function Home() {
              <Map issues={issues} onIssueSelect={setActiveIssue} />
           </div>
 
-          {/* Left Sidebar Toggle (when closed) */}
+          {/* Right Sidebar Toggle (when closed) */}
           {!isFiltersOpen && (
               <button 
                   onClick={() => setIsFiltersOpen(true)}
-                  className="absolute top-4 left-4 z-20 bg-brand-asphalt text-brand-paper p-3 shadow-[4px_4px_0px_#1A1D1A] border-2 border-brand-paper hover:translate-x-px hover:translate-y-px transition-transform flex items-center gap-2"
+                  className="absolute top-4 right-4 z-20 bg-brand-asphalt text-brand-paper p-3 shadow-[4px_4px_0px_#1A1D1A] border-2 border-brand-paper hover:translate-x-px hover:translate-y-px transition-transform flex items-center gap-2"
               >
                   <span className="material-symbols-outlined">filter_list</span>
                   <span className="font-mono-label text-[14px] uppercase hidden sm:block">Filters</span>
               </button>
           )}
 
-          {/* Left Sidebar: Filter Controls (Ticket Punch-card style) */}
-          <aside className={`panel z-10 ${isFiltersOpen ? 'w-80 flex' : 'hidden'} flex-col m-4 mr-0 overflow-y-auto bg-brand-paper border border-brand-asphalt transition-all`} style={{ height: 'calc(100% - 32px)' }}>
+          {/* Right Sidebar: Filter Controls (Ticket Punch-card style) */}
+          <aside className={`panel z-10 ${isFiltersOpen ? 'w-80 flex' : 'hidden'} flex-col absolute right-0 top-0 m-4 overflow-y-auto bg-brand-paper border border-brand-asphalt transition-all`} style={{ height: 'calc(100% - 32px)' }}>
               <div className="p-4 perforated-border-bottom border-b-2 border-dotted border-brand-stone flex justify-between items-start">
                   <div>
                       <h2 className="font-display-md text-[20px] uppercase tracking-tight text-brand-asphalt">Filters</h2>
